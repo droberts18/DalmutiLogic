@@ -12,6 +12,8 @@ namespace Dalmuti
         private string name;
         // cards in a player's hand
         private List<Card> hand;
+        // temporary rank of a player in a given round
+        private string rank;
 
         public Player() { }
 
@@ -36,6 +38,22 @@ namespace Dalmuti
             {
                 Console.WriteLine(c.getName() + ", " + c.getValue());
             }
+        }
+
+        // gives rank to player (e.g. Greater Dalmuti, Merchant, Lesser Peon, etc.)
+        public void setRank(string rank)
+        {
+            this.rank = rank;
+        }
+
+        public string getRank()
+        {
+            return rank;
+        }
+
+        public void resetHand()
+        {
+            hand.Clear();
         }
     }
 }

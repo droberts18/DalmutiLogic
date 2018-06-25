@@ -57,7 +57,7 @@ namespace Dalmuti
         {
             for(int playerIndex = 0; playerIndex < players.Length; playerIndex++)
             {
-                Console.Write("\nPlease enter a name for Player #" + playerIndex + ": ");
+                Console.Write("\nPlease enter a name for Player #" + (playerIndex + 1) + ": ");
                 string playerName = Console.ReadLine();
                 players[playerIndex] = new Player(playerName);
             }
@@ -68,11 +68,47 @@ namespace Dalmuti
         {
             gameDeck.shuffleCards();
             distributeCards();
+
+            outputPlayersHands();
+
+            // TODO: create main game logic
+
+            // resetPlayerHands();
         }
 
+        // distributes cards to all players
+        // TODO: add logic to give the Dalmuti's the hands with more cards should the deck not divide evenly amongst all players
         private void distributeCards()
         {
+            // index of the player to recieve the next card
+            int playerIndex = 0;
 
+            foreach(Card c in gameDeck.getCards())
+            {
+                players[playerIndex++].addCardToHand(c);
+
+                // checks to see if the last player has received a card and if so, the next player to receive a card is the first player
+                if (playerIndex >= playerCount)
+                    playerIndex = 0; 
+            }
+        }
+
+        // deletes all cards from each player's hand at the end of each round
+        private void resetPlayerHands()
+        {
+            foreach(Player p in players)
+            {
+                p.resetHand();
+            }
+        }
+
+        // TESTING: Outputs all player's hands
+        private void outputPlayersHands()
+        {
+            foreach(Player p in players)
+            {
+                p.outputHand();
+            }
         }
     }
 }

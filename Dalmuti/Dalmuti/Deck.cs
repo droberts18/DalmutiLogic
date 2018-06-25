@@ -92,6 +92,12 @@ namespace Dalmuti
             }
         }
 
+        // returns the cards in the deck
+        public Card[] getCards()
+        {
+            return cards;
+        }
+
         // TESTING PURPOSES: Outputs all cards, with their values and names
         public void outputCards()
         {
