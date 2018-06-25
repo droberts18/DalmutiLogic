@@ -10,16 +10,69 @@ namespace Dalmuti
     {
         // deck of cards for use in the game
         private Deck gameDeck;
+        // number of players in game
+        private int playerCount;
         // players in the game
         private Player[] players;
 
-        public Game(int playerCount)
+        public Game()
         {
-            players = new Player[playerCount];
+            setupPlayers();
+            // setup deck
             gameDeck = new Deck();
+            // TODO: Input logic for user to decide how many rounds to play? Maybe stop whenever the user decides?
+            playRound();
+        }
 
-            // TESTING CARDS OUTPUT
-            gameDeck.outputCards();
+        // calls all functions necessary to setup all players
+        private void setupPlayers()
+        {
+            enterPlayerCount();
+            players = new Player[playerCount];
+            enterPlayerNames();
+        }
+
+        // gets a valid number of players from the user
+        private void enterPlayerCount()
+        {
+            Console.WriteLine("How many players are there?");
+            bool validNumOfPlayers = false;
+
+            do
+            {
+                // if the user has entered a number between 3 and 8, inclusive
+                if ((int.TryParse(Console.ReadLine(), out playerCount)) && playerCount >= 3 && playerCount <= 8)
+                {
+                    validNumOfPlayers = true;
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid number of players (3-8 is valid). Let's try again, how many players are there?");
+                }
+            } while (!validNumOfPlayers);
+        }
+
+        // gets user-entered names for all players
+        private void enterPlayerNames()
+        {
+            for(int playerIndex = 0; playerIndex < players.Length; playerIndex++)
+            {
+                Console.Write("\nPlease enter a name for Player #" + playerIndex + ": ");
+                string playerName = Console.ReadLine();
+                players[playerIndex] = new Player(playerName);
+            }
+        }
+
+        // calls all functions necessary to play a round (TODO: complete function to suit game rules and specifications)
+        private void playRound()
+        {
+            gameDeck.shuffleCards();
+            distributeCards();
+        }
+
+        private void distributeCards()
+        {
+
         }
     }
 }
