@@ -69,11 +69,9 @@ namespace Dalmuti
             gameDeck.shuffleCards();
             distributeCards();
 
-            outputPlayersHands();
-
             // TODO: create main game logic
 
-            // resetPlayerHands();
+            resetPlayerHands();
         }
 
         // distributes cards to all players
@@ -91,6 +89,12 @@ namespace Dalmuti
                 if (playerIndex >= playerCount)
                     playerIndex = 0; 
             }
+
+            // sorts all players' hands by card value
+            foreach(Player p in players)
+            {
+
+            }
         }
 
         // deletes all cards from each player's hand at the end of each round
@@ -103,12 +107,12 @@ namespace Dalmuti
         }
 
         // TESTING: Outputs all player's hands
-        private void outputPlayersHands()
-        {
-            foreach(Player p in players)
-            {
-                p.outputHand();
-            }
-        }
+        //private void outputPlayersHands()
+        //{
+        //    foreach(Player p in players)
+        //    {
+        //        p.outputHand();
+        //    }
+        //}
     }
 }
