@@ -23,6 +23,8 @@ namespace Dalmuti
             cardsIndex = 0;
             cardValuesAndNames = new Dictionary<int, string>();
             initializeCards();
+            // shuffles cards on creation of entire deck
+            shuffleCards();
         }
 
         // creates all possible cards (uses cards dictionary), adds them to the cards array
@@ -71,6 +73,23 @@ namespace Dalmuti
             // gets corresponding card name based on cardValue
             string cardName = cardValuesAndNames[cardValue];
             cards[cardsIndex++] = new Card(cardName, cardValue);
+        }
+
+        public void shuffleCards()
+        {
+            Random rdm = new Random();
+
+            for(int i = 0; i < 100000; i++)
+            {
+                // getting two random cards
+                int swapIndex1 = rdm.Next(cards.Length);
+                int swapIndex2 = rdm.Next(cards.Length);
+
+                // classic swap function, swaps the two random cards placement in deck
+                Card temp = cards[swapIndex1];
+                cards[swapIndex1] = cards[swapIndex2];
+                cards[swapIndex2] = temp;
+            }
         }
 
         // TESTING PURPOSES: Outputs all cards, with their values and names

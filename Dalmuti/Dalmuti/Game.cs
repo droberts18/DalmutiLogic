@@ -8,12 +8,14 @@ namespace Dalmuti
 {
     class Game
     {
-        // the deck of cards for use in the game
-        Deck gameDeck;
-        // contains players?
+        // deck of cards for use in the game
+        private Deck gameDeck;
+        // players in the game
+        private Player[] players;
 
-        public Game()
+        public Game(int playerCount)
         {
+            players = new Player[playerCount];
             gameDeck = new Deck();
 
             // TESTING CARDS OUTPUT
