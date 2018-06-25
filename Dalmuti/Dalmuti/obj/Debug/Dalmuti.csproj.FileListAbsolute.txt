@@ -1,0 +1,6 @@
+C:\Users\Drew Roberts\Desktop\Dalmuti\Dalmuti\bin\Debug\Dalmuti.exe.config
+C:\Users\Drew Roberts\Desktop\Dalmuti\Dalmuti\bin\Debug\Dalmuti.exe
+C:\Users\Drew Roberts\Desktop\Dalmuti\Dalmuti\bin\Debug\Dalmuti.pdb
+C:\Users\Drew Roberts\Desktop\Dalmuti\Dalmuti\obj\Debug\Dalmuti.csprojResolveAssemblyReference.cache
+C:\Users\Drew Roberts\Desktop\Dalmuti\Dalmuti\obj\Debug\Dalmuti.exe
+C:\Users\Drew Roberts\Desktop\Dalmuti\Dalmuti\obj\Debug\Dalmuti.pdb
